@@ -8,3 +8,7 @@ npm install
   
 ## page list
  index : /
+
+
+## api list
+ path : /api/goods/[category]/[id]

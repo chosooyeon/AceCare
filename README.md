@@ -7,7 +7,8 @@ npm install
  - tailwindcss
   
 ## page list
- index : /
+ 메인페이지 : /
+ 상품페이지 : /[category]/[goodsId]
 
 
 ## api list

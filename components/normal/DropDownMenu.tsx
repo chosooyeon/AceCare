@@ -14,7 +14,7 @@ export default function DropDownMenu({buttonName, items}:{buttonName:string, ite
     <div className="group">
       <button
         type="button"
-        className="inline-flex w-full justify-center rounded-md px-4 py-2 text-sm font-medium"
+        className="inline-flex w-full justify-center rounded-md px-4 py-2 tablet:text-lg text-sm font-medium"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
@@ -23,7 +23,7 @@ export default function DropDownMenu({buttonName, items}:{buttonName:string, ite
       </button>
 
       <div
-        className={`hidden group-hover:block absolute bg-white w-56 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none -mt-1`}
+        className={`hidden group-hover:block absolute bg-white w-40 origin-top-right rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none -mt-1`}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"

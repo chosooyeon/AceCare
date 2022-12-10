@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import { goodsList } from "../../../../goodsData/coronaGoods";
 
 async function getData() {
   // let reqUrl = `https://acecare.vercel.app/api/goods/all`
-  let reqUrl = `http://localhost:3000/api/goods/all`
+  let reqUrl = `https://acecare.vercel.app/api/goods/all`
   const res = await fetch(reqUrl,
       {
         // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
@@ -20,15 +20,16 @@ export async function generateStaticParams() {
   const rows = await getData();
   // const rows = goodsList;
 
-  return rows?.map((row: any) => ({
+  let params = rows?.map((row: any) => ({
     category: row.category,
     goodsId: row.id,
   }));
+  return params
 }
 
 async function getGoodsData(category:any, goodsId:any) {
   // let reqUrl = `https://acecare.vercel.app/api/goods/${category}/${goodsId}`
-  let reqUrl = `http://localhost:3000/api/goods/${category}/${goodsId}`
+  let reqUrl = `https://acecare.vercel.app/api/goods/${category}/${goodsId}`
   const res = await fetch(reqUrl,
       {
         // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
@@ -39,15 +40,19 @@ async function getGoodsData(category:any, goodsId:any) {
 }
 
 
-export default async function Goods() {
+export default async function Goods({ params }:{params:any}) {
 
-  const pathname = usePathname();
-  let category = pathname?.split("/")[2];
-  let goodsId = pathname?.split("/")[3];
+  let category = params.category
+  let goodsId = params.goodsId
 
+
+  // import { usePathname } from "next/navigation"; <== 이거는 client 컴포넌트에서만 사용할 수 있다고 해서 제외했어요
+  // generateStaticParams 펑션에서 리턴된 데이터는 Goods 파라미터로 들어와요 
+  
   let res = await getGoodsData(category,goodsId)
   console.log(res,"res")
 
+  res = res[0]
   return (
     <>
       <section className="">

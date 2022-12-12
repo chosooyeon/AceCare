@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from "react";
 import DropDownMenu from '../normal/DropDownMenu';
-import { goodsList } from '../../goodsData/coronaGoods';
+import { goodsList } from '../../json/goodsData/coronaGoods';
 
 //todo: vercel에 배포되면 api로 가져오도록 변경 필요 
 async function getData() {

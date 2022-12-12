@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextRequest } from "next/server";
-import { goodsList } from "../../../goodsData/coronaGoods";
+import { goodsList } from "../../../json/goodsData/coronaGoods";
 
 export const config = {
   runtime: "experimental-edge",

@@ -1,19 +1,7 @@
 // 'use client'
 
-import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { goodsList } from "../../../../json/goodsData/coronaGoods";
-
-async function getGoodsAll() {
-  // let reqUrl = `https://acecare.vercel.app/api/goods/all`
-  let reqUrl = `https://acecare.vercel.app/api/goods/all`;
-  const res = await fetch(reqUrl, {
-    // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
-    cache: "force-cache", //getStaticProps(SSG) : 빌드된 데이터를 서버에 json,html 파일을 가지고 있는다.
-    // next: { revalidate:10} //getStaticProps(ISR) : 시간 주기로 서버에서 렌더링을 한다.
-  });
-  return res.json();
-}
+import { getGoodsData, getGoodsAll, getCategory } from "./pageApi";
 
 export async function generateStaticParams() {
   const rows = await getGoodsAll();
@@ -25,27 +13,6 @@ export async function generateStaticParams() {
   return params;
 }
 
-async function getGoodsData(category: any, goodsId: any) {
-  // let reqUrl = `https://acecare.vercel.app/api/goods/${category}/${goodsId}`
-  let reqUrl = `https://acecare.vercel.app/api/goods/${category}/${goodsId}`;
-  const res = await fetch(reqUrl, {
-    // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
-    cache: "force-cache", //getStaticProps(SSG) : 빌드된 데이터를 서버에 json,html 파일을 가지고 있는다.
-    // next: { revalidate:10} //getStaticProps(ISR) : 시간 주기로 서버에서 렌더링을 한다.
-  });
-  return res.json();
-}
-
-// async function getCategory(category: any){
-//   let reqUrl = `https://acecare.vercel.app/api/category/${category}`;
-//   const res = await fetch(reqUrl, {
-//     // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
-//     cache: "force-cache", //getStaticProps(SSG) : 빌드된 데이터를 서버에 json,html 파일을 가지고 있는다.
-//     // next: { revalidate:10} //getStaticProps(ISR) : 시간 주기로 서버에서 렌더링을 한다.
-//   });
-//   return res.json();
-// }
-
 export default async function Goods({ params }: { params: any }) {
   let category = params.category;
   let goodsId = params.goodsId;
@@ -54,14 +21,15 @@ export default async function Goods({ params }: { params: any }) {
   // generateStaticParams 펑션에서 리턴된 데이터는 Goods 파라미터로 들어와요
 
   let res = await getGoodsData(category, goodsId);
-  // let resCategory = await getCategory(category);
-  // console.log(res, "res");
+  let resCategory = await getCategory(category);
 
   res = res[0];
+  resCategory = resCategory[0];
+
   return (
     <main className="">
       {/*<h1 className='text-black'>path : {path}</h1> 카테고리 &gt; {category} */}
-      <h1 className="text-black">{`카테고리>${category}`}</h1>
+      <h1 className="text-black">{`카테고리>${resCategory.kor_category}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
         <Image src={res.image_path} width={512} height={512} alt="" />
       </div>

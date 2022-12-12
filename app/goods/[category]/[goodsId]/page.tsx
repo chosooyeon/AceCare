@@ -29,12 +29,12 @@ export default async function Goods({ params }: { params: any }) {
   return (
     <main className="">
       {/*<h1 className='text-black'>path : {path}</h1> 카테고리 &gt; {category} */}
-      <h1 className="text-black">{`카테고리>${resCategory.kor_category}`}</h1>
+      <h1 className="text-black">{`카테고리 > ${resCategory.kor_category}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
         <Image src={res.image_path} width={512} height={512} alt="" />
       </div>
 
-      <h1 className="text-black">{`상품상세>${res.name}`}</h1>
+      <h1 className="text-black">{`상품상세 > ${res.name}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
         <Image src={res.image_path} width={512} height={512} alt="" />
       </div>

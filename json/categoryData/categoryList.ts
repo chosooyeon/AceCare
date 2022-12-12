@@ -17,7 +17,7 @@ export const categoryList = [
     {
         id: 4,
         category: "handSanitizer",
-        kr_category: "손소독제"
+        kor_category: "손소독제"
     },
     {
         id: 5,

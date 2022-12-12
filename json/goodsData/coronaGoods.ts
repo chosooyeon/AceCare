@@ -12,7 +12,7 @@ export const goodsList = [
         name: "하우로제 살균소독제",
         category: "disinfectant",
         eng_name:"HOEROZE",
-        image_path: "/img/disinfectant_HLNS.jpg",
+        image_path: "/img/disinfectant_HOEROZE.jpg",
         img_detail_path: ""
     },
     {
@@ -44,7 +44,7 @@ export const goodsList = [
         name: "휴비딕 온도계",
         category: "thermometor",
         eng_name:"KOMAS",
-        image_path: "/img/mask_KOMAS.jpg",
+        image_path: "/img/thermometer_HUBY.jpg",
         img_detail_path: ""
     }
 ]

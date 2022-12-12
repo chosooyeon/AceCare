@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { goodsList } from "../../../../goodsData/coronaGoods";
+import { goodsList } from "../../../../json/goodsData/coronaGoods";
 
 async function getGoodsAll() {
   // let reqUrl = `https://acecare.vercel.app/api/goods/all`
@@ -17,7 +17,6 @@ async function getGoodsAll() {
 
 export async function generateStaticParams() {
   const rows = await getGoodsAll();
-  // const rows = goodsList;
 
   let params = rows?.map((row: any) => ({
     category: row.category,
@@ -37,6 +36,16 @@ async function getGoodsData(category: any, goodsId: any) {
   return res.json();
 }
 
+// async function getCategory(category: any){
+//   let reqUrl = `https://acecare.vercel.app/api/category/${category}`;
+//   const res = await fetch(reqUrl, {
+//     // cache: 'no-store' //getServerSideProps(SSR) : 서버에서 api를 요청한 후에 렌더링을 한다.
+//     cache: "force-cache", //getStaticProps(SSG) : 빌드된 데이터를 서버에 json,html 파일을 가지고 있는다.
+//     // next: { revalidate:10} //getStaticProps(ISR) : 시간 주기로 서버에서 렌더링을 한다.
+//   });
+//   return res.json();
+// }
+
 export default async function Goods({ params }: { params: any }) {
   let category = params.category;
   let goodsId = params.goodsId;
@@ -45,6 +54,7 @@ export default async function Goods({ params }: { params: any }) {
   // generateStaticParams 펑션에서 리턴된 데이터는 Goods 파라미터로 들어와요
 
   let res = await getGoodsData(category, goodsId);
+  // let resCategory = await getCategory(category);
   // console.log(res, "res");
 
   res = res[0];
@@ -56,14 +66,7 @@ export default async function Goods({ params }: { params: any }) {
         <Image src={res.image_path} width={512} height={512} alt="" />
       </div>
 
-      <div className="grid grid-cols-1 place-items-center p-5">
-        <Image src={res.image_path} width={512} height={512} alt="" />
-      </div>
-
-      <div className="grid grid-cols-1 place-items-center p-5">
-        <Image src={res.image_path} width={512} height={512} alt="" />
-      </div>
-
+      <h1 className="text-black">{`상품상세>${res.name}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
         <Image src={res.image_path} width={512} height={512} alt="" />
       </div>

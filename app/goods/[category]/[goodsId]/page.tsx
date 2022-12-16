@@ -1,7 +1,7 @@
 // 'use client'
 
 import Image from "next/image";
-import { getGoodsData, getGoodsAll, getCategory } from "../../../../components/api/goods";
+import { getGoodsData, getGoodsAll, getCategory } from "@components/api/goods";
 
 export async function generateStaticParams() {
   const rows = await getGoodsAll();

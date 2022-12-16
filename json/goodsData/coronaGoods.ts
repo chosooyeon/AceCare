@@ -15,7 +15,7 @@ export const goodsList = [
         eng_name:"HOEROZE",
         image_path: "/img/goods/disinfectant_HOEROZE.jpg",
         img_detail_path: "/img/goods/disinfectant/HOEROZE/",
-        img_length: "4"
+        img_length: 4
     },
     {
         id: "21",

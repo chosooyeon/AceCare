@@ -1,7 +1,10 @@
+"use client"
 import Link from 'next/link'
 import React, { useState, useEffect } from "react";
 import DropDownMenu from '@components/normal/DropDownMenu';
 import { goodsList } from '@json/goodsData/coronaGoods';
+import SideMenu from '@components/common/SideMenu';
+import { HiMenu } from "react-icons/hi";
 
 //todo: vercel에 배포되면 api로 가져오도록 변경 필요 
 async function getData() {
@@ -26,11 +29,19 @@ export default function Header() {
     return (
       <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-16 laptop:h-20 shadow-lg justify-center">
           <div className="w-[1280px] flex justify-between">
-            <div className="w-[150px] m-5">
+            <SideMenu />
+
+            {/* 
+            // * AceCare Main Button
+             */}
+            <div className="w-[150px] m-5 inline-flex justify-center items-center">
                 <span className="font-bold text-xl w-auto text-black"><Link href="/">AceCare</Link></span>
             </div>
+
+            {/* 
+            // * 상품 카테고리 메뉴 
+             */}
             <div className="flex justify-between items-center">
-  
               <nav className="hidden tablet:block">
                 <ul className="inline-flex">
                   {/* // todo: 버튼명 카테고리 명으로 변경 필요 */ }

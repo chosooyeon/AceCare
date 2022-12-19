@@ -5,8 +5,9 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { goodsList } from '@json/goodsData/coronaGoods';
 import { GoodsInfo } from "@type/goods";
+import { MenuItem } from "@type/menu";
 
-export default function SideMenu() {
+export default function SideMenu({menuItems}: {menuItems:MenuItem[]}) {
     const [sideView, setSideView] = useState(false);
     useEffect(() => {
       if(sideView){
@@ -15,8 +16,6 @@ export default function SideMenu() {
           document.body.style.overflow = "unset";
       }
     }, [sideView]);
-
-    const disinfectantData = goodsList.filter((x)=>x.category === 'disinfectant') //todo: SSG로 변경 필요
 
     return(
         <>
@@ -30,7 +29,13 @@ export default function SideMenu() {
 
             <div className={`fixed top-0 z-[1200] lg:hidden w-full h-[100vh] bg-gray-500 opacity-40 transition blur-sm ${sideView?'visible':'invisible'}`} onClick={()=>setSideView(!sideView)}></div>
             <nav className={`fixed top-0 z-[1300] lg:hidden w-[300px] h-full bg-white opacity-100 ${sideView?'left-0':'left-[-300px]'} duration-300`}>
-                <AccordionMenu title="disinfectant" items={disinfectantData} sideView={sideView} setSideView={setSideView}/>
+                {
+                    menuItems.map((menuItem, idx) =>{
+                        return (
+                            <AccordionMenu title={menuItem.title} items={menuItem.items} sideView={sideView} setSideView={setSideView} key={idx} />
+                        )
+                    })
+                }
             </nav>
         </>
     )

@@ -19,7 +19,7 @@ export default function SideMenu({menuItems}: {menuItems:MenuItem[]}) {
 
     return(
         <>
-           <div className="p-2 w-8 items-center text-gray-500 hover:text-black inline-flex tablet:hidden">
+           <div className="p-2 w-8 items-center text-gray-500 hover:text-black inline-flex">
                 <button onClick={()=>setSideView(!sideView)}>
                     <span>
                         <HiMenu className="w-8 h-10"/>    

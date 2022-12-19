@@ -31,7 +31,9 @@ export default function Header() {
     return (
       <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-16 laptop:h-20 shadow-lg justify-center">
           <div className="w-[1280px] flex justify-between">
-            <SideMenu menuItems={menuItems} />
+            <div className='tablet:hidden'>
+              <SideMenu menuItems={menuItems} />
+            </div>
 
             {/* 
             // * AceCare Main Button

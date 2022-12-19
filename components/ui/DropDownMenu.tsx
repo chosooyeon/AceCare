@@ -1,14 +1,9 @@
 
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
+import { GoodsInfo } from "@type/goods";
 
-//todo: items type 귀찮아서 안했지만 api가 명확해지면 타입지정
-// export type Item = {
-//     text: string;
-//     slug?: string;
-//   };
-
-export default function DropDownMenu({buttonName, items}:{buttonName:string, items:any}) {
+export default function DropDownMenu({buttonName, items}:{buttonName:string, items:GoodsInfo[]}) {
 
   return (
     <div className="group">
@@ -30,7 +25,7 @@ export default function DropDownMenu({buttonName, items}:{buttonName:string, ite
         tabIndex={-1}
       >
         <div className="py-0" role="none">
-          {items.map((item:any, index:any) => {
+          {items.map((item:GoodsInfo, index:any) => {
             return (
               <Link
                 key={index}

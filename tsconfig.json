@@ -4,7 +4,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@hooks/*": ["hooks/*"],
-      "@json/*": ["json/*"]
+      "@json/*": ["json/*"],
+      "@type/*": ["types/*"]
     },
     "target": "es5",
     "lib": [

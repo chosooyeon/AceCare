@@ -28,9 +28,10 @@ export default async function handler(req: NextRequest) {
     // https://acecare.vercel.app/api/goods/[categoryId]/[goodsId]
     let category: string = query[3];
     let goodsId: string = query[4];
-    returnObj = goodsList.filter(
+    let goodsArr = goodsList.filter(
       (x) => x.id === goodsId && x.category === category
     );
+    goodsArr.length > 0 ? returnObj=goodsArr[0] : null //Array가 아닌 Object로 리턴하기 위함.
   } else {
     returnObj = { msg: "url error" };
     returnStatus = 401;

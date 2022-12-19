@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { getGoodsData, getGoodsAll, getCategory } from "@components/api/goods";
+import { GoodsInfo } from "@type/goods";
 
 export async function generateStaticParams() {
   const rows = await getGoodsAll();
@@ -23,26 +24,20 @@ export default async function Goods({ params }: { params: any }) {
   let res = await getGoodsData(category, goodsId);
   let resCategory = await getCategory(category);
 
-  res = res[0];
+  let goods:GoodsInfo = res[0];
   resCategory = resCategory[0];
-
-  let detail_img = []
-  for(let i=1;i<=res.img_length;i++){
-      detail_img.push(res.img_detail_path+i+'.jpg')
-  }
-
 
   return (
     <main className="">
       {/*<h1 className='text-black'>path : {path}</h1> 카테고리 &gt; {category} */}
       <h1 className="text-black">{`카테고리 > ${resCategory.kor_category}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
-        <Image src={res.image_path} width={512} height={512} alt="" />
+        <Image src={goods.image_path} width={512} height={512} alt="" />
       </div>
 
-      <h1 className="text-black">{`상품상세 > ${res.name}`}</h1>
+      <h1 className="text-black">{`상품상세 > ${goods.name}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
-        {detail_img.map((item:any, index:any) => {
+        {goods.img_detail_paths?.map((item:any, index:any) => {
             return(
                 <Image key={index} src={item} width={512} height={512} alt="" />
             )

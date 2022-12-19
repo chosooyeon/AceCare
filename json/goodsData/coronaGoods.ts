@@ -1,4 +1,6 @@
-export const goodsList = [
+import { GoodsInfo } from "@type/goods"
+
+export const goodsList:GoodsInfo[] = [
     {
         id: "11",
         name: "휴비딕 살균소독제",

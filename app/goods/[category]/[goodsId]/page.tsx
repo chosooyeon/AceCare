@@ -21,10 +21,9 @@ export default async function Goods({ params }: { params: any }) {
   // import { usePathname } from "next/navigation"; <== 이거는 client 컴포넌트에서만 사용할 수 있다고 해서 제외했어요
   // generateStaticParams 펑션에서 리턴된 데이터는 Goods 파라미터로 들어와요
 
-  let res = await getGoodsData(category, goodsId);
+  let goods:GoodsInfo = await getGoodsData(category, goodsId);
   let resCategory = await getCategory(category);
 
-  let goods:GoodsInfo = res[0];
   resCategory = resCategory[0];
 
   return (
@@ -37,7 +36,7 @@ export default async function Goods({ params }: { params: any }) {
 
       <h1 className="text-black">{`상품상세 > ${goods.name}`}</h1>
       <div className="grid grid-cols-1 place-items-center p-5">
-        {goods.img_detail_paths?.map((item:any, index:any) => {
+        {goods.img_detail_paths?.map((item:string, index:number) => {
             return(
                 <Image key={index} src={item} width={512} height={512} alt="" />
             )

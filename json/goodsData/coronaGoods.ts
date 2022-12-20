@@ -8,7 +8,10 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"HLNS",
         image_path: "/img/goods/disinfectant_HLNS.jpg",
         img_detail_path: "/img/goods/disinfectant/HLNS/",
-        img_length: 1
+        img_length: 1,
+        img_detail_paths: [
+            "/img/goods/disinfectant/HLNS/1.jpg"
+        ],
     },
     {
         id: "12",
@@ -17,7 +20,13 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"HOEROZE",
         image_path: "/img/goods/disinfectant_HOEROZE.jpg",
         img_detail_path: "/img/goods/disinfectant/HOEROZE/",
-        img_length: 4
+        img_length: 4,
+        img_detail_paths: [
+            "/img/goods/disinfectant/HOEROZE/1.jpg",
+            "/img/goods/disinfectant/HOEROZE/2.jpg",
+            "/img/goods/disinfectant/HOEROZE/3.jpg",
+            "/img/goods/disinfectant/HOEROZE/4.jpg"
+        ],
     },
     {
         id: "21",
@@ -26,7 +35,10 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"ANYGUARD",
         image_path: "/img/goods/mask_ANYGUARD.jpg",
         img_detail_path: "/img/goods/mask/ANYGUARD/",
-        img_length: 1
+        img_length: 1,
+        img_detail_paths: [
+            "/img/goods/mask/ANYGUARD/1.jpg",
+        ],
     },
     {
         id: "22",
@@ -35,7 +47,10 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"KOMAS",
         image_path: "/img/goods/mask_KOMAS.jpg",
         img_detail_path: "/img/goods/mask/KOMAS/",
-        img_length: 1
+        img_length: 1,
+        img_detail_paths: [
+            "/img/goods/mask/KOMAS/1.jpg",
+        ],
     },
     {
         id: "51",
@@ -44,7 +59,16 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"ANYLAB",
         image_path: "/img/goods/coronaKit_ANYLAB.jpg",
         img_detail_path: "/img/goods/coronaKit/ANYLAB/",
-        img_length: 7
+        img_length: 7,
+        img_detail_paths: [
+            "/img/goods/coronaKit/ANYLAB/1.jpg",
+            "/img/goods/coronaKit/ANYLAB/2.jpg",
+            "/img/goods/coronaKit/ANYLAB/3.jpg",
+            "/img/goods/coronaKit/ANYLAB/4.jpg",
+            "/img/goods/coronaKit/ANYLAB/5.jpg",
+            "/img/goods/coronaKit/ANYLAB/6.jpg",
+            "/img/goods/coronaKit/ANYLAB/7.jpg",
+        ],
     },
     {
         id: "61",
@@ -53,6 +77,9 @@ export const goodsList:GoodsInfo[] = [
         eng_name:"KOMAS",
         image_path: "/img/goods/thermometer_HUBY.jpg",
         img_detail_path: "/img/goods/thermometor/KOMAS/",
-        img_length: 1
+        img_length: 1,
+        img_detail_paths: [
+            "/img/goods/thermometor/KOMAS/1.jpg",
+        ],
     }
 ]

@@ -18,10 +18,17 @@ async function getGoodsData(category: any, goodsId: any) {
     return res.json();
 }
 
+async function getGoodsCategoryData(category: any) {
+    let reqUrl = `${URL}/api/goods/${category}`;
+    const res = await fetch(reqUrl, SSG);
+    return res.json();
+}
+
+
 async function getCategory(category: any){
     let reqUrl = `${URL}/api/category/${category}`;
     const res = await fetch(reqUrl, SSG);
     return res.json();
 }
 
-export { getGoodsAll, getGoodsData, getCategory }
+export { getGoodsAll, getGoodsData, getGoodsCategoryData, getCategory }

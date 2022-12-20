@@ -3,6 +3,7 @@ export interface GoodsInfo {
     id:string;
     name:string;
     category: string;
+    kor_category: string;
     eng_name: string;
     image_path:string;
     img_detail_paths?:Array<string>;

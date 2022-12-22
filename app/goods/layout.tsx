@@ -15,7 +15,7 @@ export default function DetailGoodsLayout({
   //   path += `/${segment}`;
   // });
   return (
-    <section className="bg-gray-300 container mx-auto max-w-5xl">
+    <section className="bg-white container mx-auto max-w-5xl">
       {/* <h1 className="text-black">path : {path}</h1> */}
       <div className="px-10">{children}</div>
     </section>

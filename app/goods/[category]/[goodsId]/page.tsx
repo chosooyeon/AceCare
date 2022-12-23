@@ -27,14 +27,16 @@ export default async function Goods({ params }: { params: any }) {
   resCategory = resCategory[0];
 
   return (
-    <main className="">
-      {/*<h1 className='text-black'>path : {path}</h1> 카테고리 &gt; {category} */}
-      <h1 className="text-black">{`카테고리 > ${resCategory.kor_category}`}</h1>
+    <main>
+      <div className="font-sans text-black text-center">{`${resCategory.kor_category} 카테고리에 있는 ${goods.name} 상품을 보고계십니다`}</div>
+      
       <div className="grid grid-cols-1 place-items-center p-5">
         <Image src={goods.image_path} width={512} height={512} alt="" />
       </div>
 
-      <h1 className="text-black">{`상품상세 > ${goods.name}`}</h1>
+      <div className="text-black text-center">구입과 관련한 궁금한 점이 있으신가요?</div>
+      <div className="text-black text-center">TEL: 010.0000.0000</div>
+
       <div className="grid grid-cols-1 place-items-center p-5">
         {goods.img_detail_paths?.map((item:string, index:number) => {
             return(

@@ -23,25 +23,23 @@ export default function Card({ category }: { category:string }){
             {categoryGoods.map((goods:GoodsInfo,index:number)=>{
                 return(
                     <div key={index} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                        {/*Article*/}
-                        <article className="overflow-hidden rounded-lg shadow-lg">
+                        <article className="overflow-hidden rounded-lg shadow-lg hover:scale-105 transition duration-150 ease-in-out">
 
-                            <a href="#">
-                                <Image alt="Placeholder" className="block h-auto w-full" width="160" height="240"
-                                     src={goods.image_path}/>
-                            </a>
+                        <Link href={`/goods/${goods.category}/${goods.id}`}>
+                            <Image alt="Placeholder" className="block h-auto w-full" width="160" height="240"
+                                    src={goods.image_path}/>
+                        </Link>
 
-                            <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-                                <h1 className="text-lg">
-                                    <Link className="no-underline hover:underline text-black" href={`/goods/${goods.category}/${goods.id}`}>
-                                        {goods.name}
-                                    </Link>
-                                </h1>
-                                <p className="text-grey-darker text-sm">{goods.kor_category}</p>
-                            </header>
+                        <header className="flex items-center justify-between leading-tight p-2 md:p-4">
+                            <h1 className="text-lg">
+                                <Link className="no-underline text-black" href={`/goods/${goods.category}/${goods.id}`}>
+                                    {goods.name}
+                                </Link>
+                            </h1>
+                            <p className="text-grey-darker text-sm">{goods.kor_category}</p>
+                        </header>
 
                         </article>
-                        {/*END Article*/}
                     </div>
                 )
             })}

@@ -1,8 +1,8 @@
 export default function Footer() {
     return(
         <>
-            <div className="bg-slate-100 py-8 mx-auto">
-                <div className="w-[1280px]">
+            <div className="py-8 mx-auto text-black border border-gray-200">
+                <div className="w-[1280px] ml-5">
                     <b>ABOUT US</b>
                     <div className="mt-4">
                         <span>에이스케어</span><br/>

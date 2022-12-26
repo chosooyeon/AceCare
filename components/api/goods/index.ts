@@ -6,14 +6,12 @@ const ISR:any = { next: {revalidate: 10}, headers:{'Accept':'application/json'}}
 
 async function getGoodsAll() {
     let reqUrl = `${URL}/api/goods/all`;
-    console.log(reqUrl);
     const res = await fetch(reqUrl ,SSG);
     return res.json();
 }
 
 async function getGoodsData(category: string, goodsId: number) {
     let reqUrl = `${URL}/api/goods/${category}/${goodsId}`;
-    console.log(reqUrl);
     const res = await fetch(reqUrl, SSG);
     return res.json();
 }

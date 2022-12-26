@@ -4,32 +4,41 @@ import React, { useState, useEffect } from "react";
 import DropDownMenu from '@components/ui/DropDownMenu';
 import { goodsList } from '@json/goodsData/coronaGoods';
 import SideMenu from '@components/common/SideMenu';
+import { getGoodsAll } from "@components/api/goods";
 import { MenuItem } from '@type/menu';
-
+import { GoodsInfo } from "@type/goods";
 
 export default function Header() {
 
-  const menuItems:MenuItem[] = [
-    {
-      title: 'disinfectant',
-      items: goodsList.filter((x)=>x.category === 'disinfectant') //todo: SSG로 변경 필요
-    },
-    {
-      title: 'mask',
-      items: goodsList.filter((x)=>x.category === 'mask')                 //todo: SSG로 변경 필요
-    },
-    {
-      title: 'coronaKit',
-      items: goodsList.filter((x)=>x.category === 'coronaKit')       //todo: SSG로 변경 필요
-    },
-    {
-      title: 'thermometor',
-      items: goodsList.filter((x)=>x.category === 'thermometor')   //todo: SSG로 변경 필요
+  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
+  useEffect(() => {
+    async function initData(){
+      const goodsList:GoodsInfo[] = await getGoodsAll();
+
+      setMenuItems([
+        {
+          title: '살균소독제',
+          items: goodsList.filter((x)=>x.category === 'disinfectant')
+        },
+        {
+          title: '마스크',
+          items: goodsList.filter((x)=>x.category === 'mask')
+        },
+        {
+          title: '코로나키트',
+          items: goodsList.filter((x)=>x.category === 'coronaKit')
+        },
+        {
+          title: '온도계',
+          items: goodsList.filter((x)=>x.category === 'thermometor')
+        }
+      ])
     }
-  ]
+    initData()
+  }, [])
 
     return (
-      <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-16 laptop:h-20 shadow-lg justify-center">
+      <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-14 laptop:h-20 shadow-lg justify-center">
           <div className="w-[1280px] flex justify-between">
             <div className='tablet:hidden'>
               <SideMenu menuItems={menuItems} />

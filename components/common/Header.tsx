@@ -38,8 +38,8 @@ export default function Header() {
   }, [])
 
     return (
-      <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-14 laptop:h-20 shadow-lg justify-center">
-          <div className="w-[1280px] flex justify-between">
+      <header className="sticky top-0 z-50 bg-white laptop:z-50 w-full max-w-8xl mx-auto flex-none flex h-14 laptop:h-20 shadow-lg justify-center backdrop-blur-xl bg-white/30">
+          <div className="w-[1280px] flex">
             <div className='tablet:hidden'>
               <SideMenu menuItems={menuItems} />
             </div>
@@ -48,7 +48,7 @@ export default function Header() {
             // * AceCare Main Button
              */}
             <div className="w-[150px] m-5 inline-flex justify-center items-center">
-                <span className="font-bold text-xl w-auto text-black"><Link href="/">AceCare</Link></span>
+                <span className="font-bold text-xl w-auto text-black hover:text-main-color"><Link href="/">AceCare</Link></span>
             </div>
 
             {/* 
@@ -57,11 +57,12 @@ export default function Header() {
             <div className="flex justify-between items-center">
               <nav className="hidden tablet:block">
                 <ul className="inline-flex">
-                  {/* // todo: 버튼명 카테고리 명으로 변경 필요 */ }
                   {
                     menuItems.map((item:MenuItem, idx:number)=>{
                       return (
-                        <li key={idx} className='m-5 w-15 list-none text-black'><DropDownMenu buttonName={item.title} items={item.items}/></li>  
+                        <li key={idx} className='m-5 w-15 list-none'>
+                          <DropDownMenu buttonName={item.title} items={item.items}/>
+                        </li>  
                       )
                     })
                   }

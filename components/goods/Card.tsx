@@ -1,8 +1,8 @@
 'use client'
 
 import Image from "next/image";
-import Link from "next/link";
 import { getGoodsCategoryData } from "@components/api/goods";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { GoodsInfo } from "@type/goods";
 
@@ -24,14 +24,15 @@ export default function Card({ category }: { category:string }){
                 return(
                     <div key={index} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                         {/*Article*/}
-                        <article className="overflow-hidden rounded-lg shadow-lg">
+                        <article className="overflow-hidden rounded-lg hover:border hover:border-gray-200 shadow-md hover:shadow-lg">
 
-                            <a href="#">
-                                <Image alt="Placeholder" className="block h-auto w-full" width="160" height="240"
-                                     src={goods.image_path}/>
-                            </a>
+                            
+                            <Link href={`/goods/${goods.category}/${goods.id}`}>
+                                <Image alt="Placeholder" className="block h-auto w-full" width="160" height="240" src={goods.image_path}/>
+                            </Link>
+                            
 
-                            <header className="flex items-center justify-between leading-tight p-2 md:p-4">
+                            <header className="flex bg-white items-center justify-between leading-tight p-2 md:p-4">
                                 <h1 className="text-lg">
                                     <Link className="no-underline hover:underline text-black" href={`/goods/${goods.category}/${goods.id}`}>
                                         {goods.name}

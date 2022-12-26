@@ -5,9 +5,8 @@ import { getGoodsData, getGoodsAll, getCategory } from "@components/api/goods";
 import { GoodsInfo } from "@type/goods";
 
 export async function generateStaticParams() {
-  const rows = await getGoodsAll();
-
-  let params = rows?.map((row: any) => ({
+  const rows:GoodsInfo[] = await getGoodsAll();
+  let params = rows.map((row: GoodsInfo) => ({
     category: row.category,
     goodsId: row.id,
   }));
@@ -17,9 +16,6 @@ export async function generateStaticParams() {
 export default async function Goods({ params }: { params: any }) {
   let category = params.category;
   let goodsId = params.goodsId;
-
-  // import { usePathname } from "next/navigation"; <== 이거는 client 컴포넌트에서만 사용할 수 있다고 해서 제외했어요
-  // generateStaticParams 펑션에서 리턴된 데이터는 Goods 파라미터로 들어와요
 
   let goods:GoodsInfo = await getGoodsData(category, goodsId);
   let resCategory = await getCategory(category);

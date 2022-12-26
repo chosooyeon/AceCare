@@ -5,6 +5,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  // async rewrites() {
+  //   return [
+  //       {
+  //         source: '/api/:path*',
+  //         destination: `https://acecare.vercel.app/api/:path*`,
+  //       }
+  //     ]
+  // }
 }
 
 module.exports = nextConfig

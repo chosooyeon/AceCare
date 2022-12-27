@@ -9,7 +9,7 @@ export default function DropDownMenu({buttonName, items}:{buttonName:string, ite
     <div className="group">
       <button
         type="button"
-        className="inline-flex w-full justify-center rounded-md px-4 py-2 tablet:text-lg text-sm font-medium"
+        className="inline-flex w-full justify-center rounded-md px-4 py-2 tablet:text-base font-semibold text-gray-500 hover:text-main-color"
         id="menu-button"
         aria-expanded="true"
         aria-haspopup="true"
@@ -30,7 +30,7 @@ export default function DropDownMenu({buttonName, items}:{buttonName:string, ite
               <Link
                 key={index}
                 href={`/goods/${item.category}/${item.id}`}
-                className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-300"
+                className="text-gray-700 block px-4 py-2 text-sm hover:text-main-color"
                 role="menuitem"
                 id="menu-item-0"
                 tabIndex={-1}

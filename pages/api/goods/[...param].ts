@@ -11,7 +11,7 @@ export default async function handler(req: NextRequest) {
   let returnStatus = 200;
 
   const query = req.nextUrl.pathname.split("/");
-  console.log(query);
+
   if (query.length === 4) {
     let category: string = query[3];
     if (category === "all") {

@@ -23,8 +23,7 @@ export default function Card({ category }: { category:string }){
             {categoryGoods.map((goods:GoodsInfo,index:number)=>{
                 return(
                     <div key={index} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
-                        {/*Article*/}
-                        <article className="overflow-hidden rounded-lg hover:border hover:border-gray-200 shadow-md hover:shadow-lg text-main-color">
+                        <article className="overflow-hidden rounded-lg shadow-lg hover:scale-105 transition duration-150 ease-in-out">
 
                             
                             <Link href={`/goods/${goods.category}/${goods.id}`}>
@@ -40,9 +39,7 @@ export default function Card({ category }: { category:string }){
                                 </h1>
                                 <p className="text-gray-400 text-sm">{goods.kor_category}</p>
                             </header>
-
                         </article>
-                        {/*END Article*/}
                     </div>
                 )
             })}

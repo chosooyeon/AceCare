@@ -17,9 +17,27 @@ export default function Card({ category }: { category:string }){
         }
         fetchGoodsCategory()
     },[category]);
+
+    useEffect(()=>{
+        const cards = document.querySelectorAll('.card');
+    
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+                // console.log(entry,"entry")
+                entry.isIntersecting ? entry.target.classList.add('translate-y-6') : ''
+            });
+          }
+        );
+      
+        cards.forEach((card) => {
+          observer.observe(card);
+        });
+      })
+
     return(
         <>
-            <div className="flex flex-wrap -mx-1 lg:-mx-4">
+            <div className="card transition duration-150 ease-in-out flex flex-wrap -mx-1 lg:-mx-4 ">
             {categoryGoods.map((goods:GoodsInfo,index:number)=>{
                 return(
                     <div key={index} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">

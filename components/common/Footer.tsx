@@ -2,7 +2,7 @@ export default function Footer() {
     return(
         <>
             <div className="bg-slate-100 py-8">
-                <section className="w-[1280px] container mx-auto">
+                <section className="container mx-auto text-black">
                     <div><b>ABOUT US</b></div>
                     <div className="mt-4 text-xs tablet:text-base">
                         <span>에이스케어</span><br/>

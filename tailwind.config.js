@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        'NanumSquare': 'sans-serif'
+      },
       animation: {
         'accordian-menu-open': 'accordian-menu-open 0.5s ease',
         'accordian-menu-close': 'accordian-menu-close 0.5s ease',

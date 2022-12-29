@@ -12,7 +12,7 @@ function SlideAnim(){
           elem.classList.add('animate-slide')
         }
         // else{
-        //   elem.classList.remove('slide')
+        //   elem.classList.remove('slide') 
         // }
       });
     });

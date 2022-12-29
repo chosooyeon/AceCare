@@ -6,8 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'NanumSquare', sans-serif;
 }
 
 a {
@@ -29,25 +28,18 @@ a {
   }
 }
 
-/* .slide {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 100%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-} */
-
 ::selection {
   background-color: gray;
   color: greenyellow;
 
+}
+
+span {
+	opacity: 0;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
 }

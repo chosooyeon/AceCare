@@ -29,7 +29,7 @@ a {
   }
 }
 
-.slide {
+/* .slide {
   animation-duration: 3s;
   animation-name: slidein;
 }
@@ -44,6 +44,7 @@ a {
     margin-left: 0%;
     width: 100%;
   }
+} */
 
 ::selection {
   background-color: gray;

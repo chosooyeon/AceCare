@@ -9,7 +9,7 @@ function SlideAnim(){
         let elem:any = entry.target;
 
         if(entry.intersectionRatio > 0){
-          elem.classList.add('slide')
+          elem.classList.add('animate-slide')
         }
         // else{
         //   elem.classList.remove('slide')

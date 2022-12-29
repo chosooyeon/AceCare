@@ -13,7 +13,7 @@ module.exports = {
       animation: {
         'accordian-menu-open': 'accordian-menu-open 0.5s ease',
         'accordian-menu-close': 'accordian-menu-close 0.5s ease',
-        'slide' : 'slide 3s ease'
+        'slide' : 'slide 3s ease-in-out'
       },
       keyframes: {
         'accordian-menu-open': {
@@ -25,8 +25,8 @@ module.exports = {
           '100%': {height: '0%', opacity: '0'}
         },
         'slide':{
-          '0%' : { 'paddingTop': '50%', width: '100%' },
-          '100%' : { 'paddingTop': '0%', width: '100%' }
+          'from' : { 'paddingTop': '50%', width: '100%' },
+          'to' : { 'paddingTop': '0%', width: '100%' }
         }
       },
       screens: {

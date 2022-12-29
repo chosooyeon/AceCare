@@ -44,4 +44,9 @@ a {
     margin-left: 0%;
     width: 100%;
   }
+
+::selection {
+  background-color: gray;
+  color: greenyellow;
+
 }

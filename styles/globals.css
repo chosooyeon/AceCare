@@ -29,7 +29,24 @@ a {
   }
 }
 
+.slide {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+
 ::selection {
   background-color: gray;
   color: greenyellow;
+
 }

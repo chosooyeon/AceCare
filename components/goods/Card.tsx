@@ -17,6 +17,7 @@ export default function Card({ category }: { category:string }){
         }
         fetchGoodsCategory()
     },[category]);
+
     return(
         <>
             <div className="flex flex-wrap -mx-1 lg:-mx-4">

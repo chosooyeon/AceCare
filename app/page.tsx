@@ -50,8 +50,8 @@ export default function Home() {
       {
         sections.map((section, idx:number) => {
           return (
-            <section key={idx} className='rounded-lg'>
-              <div className='text-black pt-5 pl-5'>{section.title}</div>
+            <section key={idx} className='rounded-lg bg-slate-50'>
+              <div className='text-black pt-5 pl-5 text-lg'>{section.title}</div>
               <div className='card m-7'>
                 <Card category={section.category}/>
               </div>

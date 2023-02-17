@@ -76,7 +76,7 @@ function AccordionMenu ({title, items, sideView, setSideView}: {title:string, it
                                         setSideView(!sideView)
                                         router.push(`/goods/${item.category}/${item.id}`)
                                     }}>
-                                        <span className="relative flex">&nbsp;&nbsp;&nbsp;&nbsp;{item.name}</span>
+                                        <span className="relative flex ml-5">{item.name}</span>
                                     </button>
                                 </li>        
                             )
